@@ -1,0 +1,110 @@
+body {
+  background: #FFF;
+  margin: 0;
+}
+
+
+/*
+HEADER
+==============================*/
+
+
+.header {
+height: 50px;
+padding-top: 4px;
+background: url(../img/banner.png) 0 0 repeat-x;
+}
+
+.header h1 {
+	margin: 0 24px;
+}
+
+
+
+
+/*
+MAIN
+==============================*/
+
+.gridframe {
+  width: 974px; /* 1050-75-1 */
+  height: 524px; /* 600 - 75 -1 */
+  background: url(../img/grid-grey.png) 0 0 repeat;
+  margin: 25px auto;
+  border: solid 1px #333;
+  border-radius: 8px;
+  position: relative;
+  padding: 75px;
+}
+
+
+/*
+FOOTER
+==============================*/
+
+.footer {
+	position: fixed;
+	bottom: 12px;
+	left: 24px;
+	right: 24px;
+	border: solid 1px #999;
+	border-radius: 4px;
+	box-shadow: 0 2px 2px rgba(0,0,0,0.4);
+	min-height: 36px;
+	background: #FFF;
+}
+
+.gridController h3,
+.gridController ul {
+	float: left;
+	padding: 0;
+	margin: 6px 0 4px 12px;
+}
+
+.gridController li {
+	float: left;
+	margin: 0 6px;
+	list-style: none;
+	font-size: 10px;
+	border: solid 1px #CCC;
+	padding: 4px;
+	border-radius: 4px;
+	width: 70px;
+	text-align: center;
+	background: #F0F0F0;
+	position: relative;
+	cursor: pointer;
+}
+.gridController li:hover {
+	background: #E0E0E0;
+}
+
+.gridController li .delete {
+	position: absolute;
+	top: -6px;
+	right: -6px;
+	width: 10px;
+	height: 10px;
+	border-radius: 6px;
+	border: solid 1px #000;
+	background: #900;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 10px;
+	text-align: center;
+	line-height: 8px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+	cursor: pointer;
+}
+.gridController li .delete:hover {
+	background: #C00;
+}
+
+.gridController .addGrid {
+	float: right;
+	padding: 8px 12px 0 0 ;
+}
+
+
+
+

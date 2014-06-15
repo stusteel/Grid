@@ -1,0 +1,467 @@
+/* CELL
+=====================================*/
+
+.cell {
+  position: absolute;
+  border: solid 1px #900;
+  background: #F0F0FF;
+  margin: -1px 0 0 -1px;
+}
+.cell:hover {
+  box-shadow: 0 0 4px rgba(153,0,0,0.5);
+  z-index:100;
+}
+.active>.cell {
+  background: #E0E0FF;
+  box-shadow: 0 0 5px #000;
+}
+
+.cell>.cellcontents {
+  width: 100%;
+  height: 100%;
+}
+
+.cell .celltab {
+  position: absolute;
+  border: solid 1px #FFF;
+  background: #F0F0FF;
+  
+}
+
+.cell .controltab {
+  position: absolute;
+  left: 50%;
+  bottom: -90px;
+  margin: 0 0 0 -122px;
+  z-index: 10;
+  width: 234px;
+  padding: 8px 4px 4px;
+  display: none;
+  text-align: center;
+  background: rgba(240,240,255,0.01);
+  /*background: rgba(255,0,0,0.5);*/
+  border: none;
+}
+.Chrome .cell .controltab {bottom: -90px; }
+.cell:hover .controltab, .cell:hover .closetab { display: block }
+.cell:hover .textInput { display: none; }
+.cell .controltab:before,
+.cell .calendarInput:before {
+  content: " ";
+  position: absolute;
+  background: #F0F0FF;
+  border: solid 1px #000;
+  border-width: 0 0 1px 1px;
+  width: 16px;
+  height: 16px;
+  left: 50%;
+  top: 0;
+  margin-left: -7px;
+  /*-webkit-transform: rotate(145deg) skew(30deg);
+  -moz-transform: rotate(145deg) skew(30deg);*/
+
+  -webkit-transform: rotate(145deg)  skew(20deg);
+  -moz-transform: rotate(145deg)  skew(20deg);
+}
+
+
+.cell .controltab h3 {
+  margin: 0;
+}
+
+.cell .controlpanel {
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.8);
+  /*display: none;*/
+  border: solid 1px #000;
+  /*width: 224px;*/
+  overflow: hidden;
+  padding: 4px;
+  background: #F0F0FF;
+  border-radius: 4px;
+}
+
+.cell .closetab {
+  position: absolute;
+  right: -37px;
+  top: -46px;
+  margin:  0;
+  z-index: 10;
+  padding: 8px 4px 10px;
+  display: none;
+  text-align: center;
+  background: rgba(240,240,255,0.01);
+  /*background: rgba(255,0,0,0.5);*/
+  border: none;
+}
+
+.cell .closepanel {
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.8);
+  /*display: none;*/
+  border: solid 1px #000;
+  width: 64px;
+  overflow: hidden;
+  padding: 0;
+  background: #F0F0FF;
+  border-radius: 4px;
+}
+
+.cell .celltab a {
+  width: 24px;
+  height: 24px;
+  /*float: left;*/
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -999px;
+  text-align: left;
+  background-image: url(../img/grid-sprites.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  margin: 2px 2px;
+  border: solid 1px #F0F0FF;
+}
+.cell .closetab a:hover,
+.cell .controltab a.active:hover,
+.cell .controltab a.highlighted {
+  background-color: #D0D0FF; 
+  border: solid 1px #99F;
+}
+.cell .closetab a {
+margin: 1px;
+}
+
+.cell .controltab a {
+opacity: 0.25;
+cursor: default;
+}
+.cell .controltab a.w1h1,
+.w2h2 .controltab a.w2h2,
+.w3h2 .controltab a.w3h2,
+.w3h3 .controltab a.w3h3,
+.w1h2 .controltab a.w1h2 {
+opacity: 1;
+cursor: pointer;
+}
+
+.celltab a.WP {
+  background-position: -24px 0;
+}
+.celltab a.Whereis {
+  background-position: -48px 0;
+}
+.celltab a.FB {
+background-position: -48px -49px;
+}
+.celltab a.YT {
+background-position: -72px -48px;
+}
+.celltab a.Tasks {
+background-position: -24px -48px;
+}
+.celltab a.calc {
+background-position: -48px -24px;
+}
+.celltab a.Freetext {
+background-position: -72px -24px;
+}
+.celltab a.Hyperlink {
+background-position: 0 -24px;
+}
+.celltab a.Image {
+background-position: 0 -48px;
+}
+.celltab a.Calendar {
+background-position: -24px -24px;
+}
+.celltab a.close {
+background-position: 0px -72px;
+}
+.celltab a.scale {
+background-position: -24px -72px;
+}
+
+/* text formatting */
+
+.celltab a.Bold {
+background-position: -101px 0;
+}
+.celltab a.Italic {
+background-position: -129px 0;
+}
+.celltab a.AlignLeft {
+background-position: -267px 0;
+}
+.celltab a.AlignCenter {
+background-position: -322px 0;
+}
+.celltab a.AlignRight {
+background-position: -295px 0;
+}
+.celltab a.IncreaseFontsize {
+background-position: -350px -29px;
+}
+.celltab a.DecreaseFontsize {
+background-position: -101px -56px;
+}
+.celltab a.FontColour {
+background-position: -128px -29px;
+}
+.celltab a.BackgroundColour {
+background-position: -155px -29px;
+}
+
+
+/* GRID CONTENTS 
+===============================================================*/
+
+/* freetext */
+
+div.freetext {
+  display: table;
+}
+.freetext>.align {
+  display: table-cell;
+  text-align: center;
+  padding: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #000;
+}
+.freetext>.align.middle {
+  vertical-align: middle;
+}
+
+.freetext .largest { font-size: 18px; }
+.freetext .larger { font-size: 18px; }
+.freetext .large { font-size: 18px; }
+.freetext .medium { font-size: 18px; }
+.freetext .small { font-size: 18px; }
+.freetext .smallest { font-size: 18px; }
+
+.scrollable {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.cell .textInput {
+  bottom: -140px;
+  width: 300px;
+  margin-left: -154px;
+}
+
+.cell textarea {
+  width: 280px;
+  height: 50px;
+}
+
+
+/* hyperlink */
+
+iframe.hyperlink,
+iframe.whereis {
+zoom: 0.75;
+
+/*-webkit-transform: scale(0.75);
+-webkit-transform-origin: 0 0;*/
+/*width: 100%;
+height: 100%;*/
+border: none;
+overflow: auto;
+margin: 0;
+padding: 0;
+}
+.Chrome iframe.hyperlink,
+.Chrome iframe.whereis {
+zoom: 0.75;
+-webkit-transform: scale(0.75);
+-webkit-transform-origin: 0 0;
+}
+.Firefox iframe.hyperlink,
+.Firefox iframe.whereis {
+zoom: 0.75;
+-moz-transform: scale(0.75);
+-moz-transform-origin: 0 0;
+}
+
+
+/* image */
+.imageHolder {
+  background: #000 !important;
+  text-align: center;
+}
+
+
+/* WP & YP */
+.introcard {
+  height: 100%;
+  overflow: auto;
+  font-size: 11px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.introcard p {
+  margin: 0.5em 0;
+}
+
+
+/* todo lists */
+
+.cell .taskInput {
+  bottom: -92px;
+  width: 300px;
+  margin-left: -154px;
+}
+
+.tasksFocus .taskInput {
+  display: block;
+}
+.taskInput .controlpanel {
+  padding: 12px 4px;
+}
+ul.tasksList {margin: 0; padding: 0;}
+
+ul.tasksList li {
+  list-style: none;
+  padding: 6px 24px 6px 6px;
+  margin: 0;
+  text-align: : left;
+  position: relative;
+}
+ul.tasksList li:nth-child(even) {
+  background: #FFF;
+}
+
+ul.tasksList label {
+   padding-left: 40px;
+   position: relative;
+   display: block;
+}
+
+ul.tasksList label input[type="checkbox"] {position: absolute; left: -999px; top: -999px;}
+ul.tasksList label input[type="checkbox"] + span.chkbox { 
+  width: 20px;
+  height: 22px;
+  background: url(../img/formControls_sprite.png) -29px -32px no-repeat;
+  vertical-align: middle;
+  cursor: pointer;
+
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: -3px;
+}
+
+ul.tasksList label:hover input[type="checkbox"] + span.chkbox{
+ background: url(../img/formControls_sprite.png) -59px -32px no-repeat;
+}
+
+ul.tasksList label input[type="checkbox"]:checked + span.chkbox{
+ background: url(../img/formControls_sprite.png) 0 -32px no-repeat;
+}
+ul.tasksList label input[type="checkbox"]:checked + span.chkbox + span{
+ text-decoration: line-through;
+}
+
+ul.tasksList .deleteTask {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 2px;
+  top: 6px;
+  background: url(../img/formControls_sprite.png) -90px -32px no-repeat;
+  overflow: hidden;
+  text-indent: -999px;
+  visibility: hidden;
+  cursor: pointer;
+}
+ul.tasksList li:hover .deleteTask {
+  visibility: visible;
+}
+
+.taskInput  .newTaskTitle {
+  width: 225px;
+}
+
+.taskListTitle {
+  margin-left: 12px;
+}
+
+
+/* DATE / CALENDAR */
+
+.cell .calendarInput {
+  /*bottom: -55px;*/
+  width: 206px;
+  position: absolute;
+  left: 50%;
+  margin: 1px 0 0 -103px;
+  padding-top: 9px;
+  display: none;
+}
+.cell:hover .calendarInput {
+  
+  display: block;
+}
+
+
+.date { 
+  background-color:#FFFAE5; 
+  display: block;
+  position: relative;
+  padding: 0;
+  margin: 0 auto;
+} 
+.date .month {
+  text-transform: uppercase;
+  font-size:18px;
+  display: block;
+  text-align: center;
+}
+.date .dayName {
+  font-size: 10px;
+  display: block;
+  background: #900;
+  color: #FFF;
+  text-align: center;
+  padding: 0 0 2px;
+  font-weight: bold;
+}
+
+
+.date .day {
+  font-size:40px;
+  line-height:37px;
+  display: block;
+  text-align: center;
+}
+.date .year { 
+  display:block; 
+  position:absolute; 
+  right:-5px; 
+  top:60px;
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  font-size: 11px;
+  display: none;
+}
+
+
+/* Whereis */
+
+.cell .whereisInput {
+  bottom: -137px;
+  width: 300px;
+  margin-left: -154px;
+}
+
+.cell .whereisInput input[type="text"]{
+  width: 260px;
+  padding: 2px 4px;
+  border: solid 1px #000;
+}
+
+.cell .userInput {
+  padding: 3px 0;
+}

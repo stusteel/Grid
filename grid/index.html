@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Backbone Marionette DB Grid</title>
+
+  <!-- Application styles -->
+  <link rel="stylesheet" href="/assets/css/index.css">
+</head>
+
+<body>
+  <div class="header" id="header"> 
+    <h1>DB Grid Demo</h1>
+  </div>
+  <!-- Main container -->
+  <div role="main" id="main"></div>
+  <div role="footer" id="footer" class="footer"></div>
+
+  <!-- Application source -->
+  <script data-main="app/config" src="/assets/js/libs/require.js"></script>
+
+
+
+<!-- templates -->
+
+<script type="text/template" id="gridController">
+<h3>Grids</h3>
+<ul id="gridsList" class="gridList">
+{{#each items}}
+  <li class="gridIcon" id="{{_id}}">{{title}}<span class="delete">x</span></li>
+  {{/each}}
+</ul>
+
+<div class="addGrid">
+  <label for="gridTitle">New Grid</label>
+  <input type="text" id="gridTitle" value="" />
+  <button id="newGrid" value="add" >Add</button>
+</div>
+</script>
+
+
+
+<script type="text/template" id="grid">
+<div id="gridholder">
+  <div class="gridframe">
+    {{#if title}}
+    <div class="grid">
+      
+    </div>
+    <div id="cellsholder" class="cellsholder">
+        <div id="cells" class="cells">
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</div>
+</script>
+
+
+<script type="text/template" id="cell">
+  <div class="cell cellWidth{{width}}" style="width: {{pixWidth}}px; height: {{pixHeight}}px; left: {{pixX}}px; top: {{pixY}}px" id="{{cid}}">
+  <div class="cellcontents">
+      <div class="celltab controltab">
+          <div class="controlpanel emptycell">
+              <a href="#" attr-type="YL" class="contentType YP w1h1 active" title="Yellow Pages">YL</a>
+              <a href="#" attr-type="WP" class="contentType WP w1h1 active" title="White Pages">WP</a>
+              <a href="#" attr-type="WI" class="contentType Whereis w3h3" title="Whereis Maps">Whereis</a>
+              <a href="#" attr-type="FB" class="contentType FB w1h1 active" title="Facebook">FB</a>
+              <a href="#" attr-type="YT" class="contentType YT w3h2" title="Youtube">Youtube</a>
+              <a href="#" attr-type="TSK" class="contentType Tasks w3h2 active" title="Tasks">Tasks</a>
+              <a href="#" attr-type="CLC" class="contentType calc w2h2" title="Calculator">Calculator</a>
+              <a href="#" attr-type="TXT" class="contentType Freetext w1h1 active" title="freetext">freetext</a>
+              <a href="#" attr-type="HL" class="contentType Hyperlink w1h1 active" title="Web link">weblink</a>
+              <a href="#" attr-type="IMG" class="contentType Image w1h1 active" title="Image">image</a>
+              <a href="#" attr-type="CAL" class="contentType Calendar w1h1 active" title="Calendar">calendar</a>
+          </div>
+      </div>
+  </div>
+  <div class="celltab closetab">
+      <div class="closepanel">
+          <a href="#" class="scale" title="Scale">scale</a>
+          <a href="#" class="close" title="Close">close</a>
+      </div>
+  </div>
+  </div>
+</script>
+
+
+<script type="text/template" id="cell_TXT">
+  <div class="cell cellWidth{{width}}" style="width: {{pixWidth}}px; height: {{pixHeight}}px; left: {{pixX}}px; top: {{pixY}}px" id="{{cid}}">
+  <div class="cellcontents">
+    <div class="scrollable"><div class="freetext"><div class="align middle center defaulttext">
+        {{#if content}}
+          {{content}}</h1>
+        {{else}}
+          Enter text in this cell
+        {{/if}}
+    </div></div></div>
+     <div class="celltab controltab textInput">
+        <div class="controlpanel">
+            <h3>Enter text to publish</h3>
+            <div class="userInput">
+                <textarea name="textInput" placeholder="Enter your text" id="input-text" class="TXT"></textarea>
+            </div>
+            <div class="userInput">
+                <input name="textSubmit" value="Close" class="textSubmit" type="button">
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="celltab closetab">
+      <div class="closepanel">
+          <a href="#" class="scale" title="Scale">scale</a>
+          <a href="#" class="close" title="Close">close</a>
+      </div>
+  </div>
+  </div>
+</script>
+
+</body>
+</html>
