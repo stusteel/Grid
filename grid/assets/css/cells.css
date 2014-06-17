@@ -1,10 +1,13 @@
 /* CELL
 =====================================*/
 
+
+
+
 .cell {
   position: absolute;
   border: solid 1px #900;
-  background: #F0F0FF;
+  
   margin: -1px 0 0 -1px;
 }
 .cell:hover {
@@ -16,9 +19,18 @@
   box-shadow: 0 0 5px #000;
 }
 
+.cell>.cellShadow {
+  position: absolute;
+  background: rgba(230,230,230,0.6);
+  z-index: 1;
+}
+
 .cell>.cellcontents {
   width: 100%;
   height: 100%;
+  position: relative;
+  z-index: 2;
+  background: #F0F0FF;
 }
 
 .cell .celltab {
@@ -217,6 +229,8 @@ background-position: -155px -29px;
 
 div.freetext {
   display: table;
+  width: 100%;
+  height: 100%;
 }
 .freetext>.align {
   display: table-cell;

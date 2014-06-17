@@ -27,8 +27,8 @@ function(ns,TXT) {
       },
       idAttribute: "_id",
     initialize: function() {
-      var pixHeight=this.get("height")*(ns.app.gridUnit-1);
-      var pixWidth=this.get("width")*(ns.app.gridUnit-1);
+      var pixHeight=(this.get("height")*ns.app.gridUnit)-1;
+      var pixWidth=(this.get("width")*ns.app.gridUnit)-1;
       var pixX=this.get("x")*ns.app.gridUnit;
       var pixY=this.get("y")*ns.app.gridUnit;
       this.set({
